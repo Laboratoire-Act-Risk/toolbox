@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{actuarialsymbol,actuarialangle}
+
+\renewcommand{\d}[1]{\mathrm{d}#1}
+\newcommand{\auto}[1]{\left(#1\right)}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\e}[1]{e^{#1}}
+\newcommand{\eval}[2]{\Big|_{#1}^{#2}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% Probabilités générales
+\newcommand{\tls}[2]{\mathcal{L}_{#1}\left(#2\right)}
+\newcommand{\fgm}[2]{\mathcal{M}_{#1}\left(#2\right)}
+\newcommand{\fgp}[2]{\mathcal{P}_{#1}\left(#2\right)}
+\newcommand{\ndis}[1]{N\left(#1\right)}
+\newcommand{\chidis}[1]{\chi^2_{#1}}
+\newcommand{\fdis}[1]{F_{#1}}
+\newcommand{\tdis}[1]{t_{#1}}
+\newcommand{\prob}[1]{\Pr\left(#1\right)}
+\newcommand{\pdf}[2]{{f}_{#1}\left(#2\right)}
+\newcommand{\cdf}[2]{{F}_{#1}\left(#2\right)}
+\newcommand{\sur}[2]{{\overline{F}}_{#1}\left(#2\right)}
+\newcommand{\inv}[2]{{F}_{#1}^{-1}\left(#2\right)}
+\newcommand{\ind}[2]{\cdot\mathbb{I}_{\left\{#1>#2\right\}}}
+\newcommand{\pgamma}[3]{H\left(#1; #2, #3\right)}
+\newcommand{\sgamma}[3]{\overline{H}\left(#1; #2, #3\right)}
+\newcommand{\pbeta}[3]{B\left(#1; #2, #3\right)}
+\newcommand{\sbeta}[3]{\overline{B}\left(#1; #2, #3\right)}
+\newcommand{\gam}[1]{\Gamma\left(#1\right)}
+\newcommand{\iid}[1]{\stackrel{\mathrm{i.i.d}}{#1}}
+
+% Mesures de risques
+\newcommand{\VaR}[1]{VaR_\kappa\left(#1\right)}
+\newcommand{\VaRd}[2]{VaR_{#1}\left(#2\right)}
+\newcommand{\TVaR}[1]{TVaR_\kappa\left(#1\right)}
+\newcommand{\TVaRd}[2]{TVaR_{#1}\left(#2\right)}
+\newcommand{\LTVaR}[1]{LTVaR_\kappa\left(#1\right)}
+\newcommand{\LTVaRd}[2]{LTVaR_{#1}\left(#2\right)}
+\newcommand{\stoploss}[2]{\pi_{#1}\left(#2\right)}
+
+% Espérances et variances
+\newcommand{\esp}[1]{E\left[ #1 \right]}
+\newcommand{\espmin}[2]{E\left[\min\left(#1;#2\right)\right]}
+\newcommand{\espmax}[2]{E\left[\max\left(#1;#2\right)\right]}
+\newcommand{\esptrD}[2]{E\left[#1\cdot\mathbb{I}_{\left\{#1>#2\right\}}\right]}
+\newcommand{\esptrU}[2]{E\left[#1\cdot\mathbb{I}_{\left\{#1\leq#2\right\}}\right]}
+\newcommand{\cov}[2]{\operatorname{Cov}\left(#1, #2\right)}
+\newcommand{\var}[1]{\operatorname{Var}\left( #1 \right)}
+
+% Estimateurs
+\newcommand{\hesp}[1]{\widehat{E} \left[ #1 \right]}
+\newcommand{\hvar}[1]{\widehat{\operatorname{Var}} \left( #1 \right)}
+\newcommand{\htheta}{\hat{\theta}}
+
+
+\begin{document}
+
+\begin{itemize}
+    \item Généralités (la hauteur des parenthèses/accolades s'ajuste automatiquement, comme si on utilisait left et right de part et d'autre)
+    \begin{itemize}
+        \item $\auto{ \dots }$
+        \item $\prob{ \dots }$
+        \item $\set{ \dots }$
+        \item $\d{u}$
+        \item $\iid{=}$
+        \item $\abs{a - b}$
+    \end{itemize}
+    \item Fonctions génératrices
+    \begin{itemize}
+        \item $\tls{X}{t}$
+        \item $\fgp{X}{t}$
+        \item $\fgm{X}{t}$
+    \end{itemize}
+    \item Espérances et variances
+    \begin{itemize}
+        \item $\esp{X}$
+        \item $\esptrD{X}{d}$
+        \item $\esptrU{X}{d}$
+        \item $\espmin{X}{d}$
+        \item $\espmax{X}{d}$
+        \item $\stoploss{X}{d}$
+        \item $\var{X}$
+        \item $\cov{X}{Y}$
+    \end{itemize}
+    \item Mesures de risque
+    \begin{itemize}
+        \item $\VaR{X}$
+        \item $\VaRd{0.99}{Y}$
+        \item $\TVaR{X}$
+        \item $\TVaRd{0.5}{Y}$
+        \item $\LTVaR{X}$
+        \item $\LTVaRd{0.8}{Y}$
+    \end{itemize}
+    \item Estimateurs
+    \begin{itemize}
+        \item $\hesp{\theta}$
+        \item $\hvar{\theta}$
+    \end{itemize}
+    \item Fonctions de répartition/survie
+    \begin{itemize}
+        \item $\pdf{X}{x}$
+        \item $\cdf{X}{x}$
+        \item $\sur{X}{x}$
+        \item $\inv{X}{x}$
+        \item $\pgamma{x}{\alpha}{\beta}$
+        \item $\sgamma{x}{\alpha}{\beta}$
+        \item $\pbeta{x}{\alpha}{\beta}$
+        \item $\sbeta{x}{\alpha}{\beta}$
+    \end{itemize}
+\end{itemize}
+
+\end{document}
